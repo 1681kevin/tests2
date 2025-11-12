@@ -1,7 +1,7 @@
 img:hover {
   opacity: 0.5;
 }
-a { position: relative; text-decoration: none; }
+a { position: relative; text-decoration: none !important; }
 a::after {
   content: ''; position: absolute; left: 0; bottom: -2px; height: 2px; width: 0;
   background: currentColor; opacity: .7; transition: width .2s ease, opacity .2s ease;
@@ -30,21 +30,53 @@ p {
     1px 1px 0 #000, -1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000,
     2px 0 0 #000, -2px 0 0 #000, 0 2px 0 #000, 0 -2px 0 #000;
 }
-ul {
+ul.nav-vertical {
   list-style-type: none;
+  border: 3px solid hsla(251, 94%, 48%, 0.938);
+  border-radius: 4px;
   margin: 0;
   padding: 0;
   width: 200px;
   background-color: #f1f1f1;
 }
 
-li a {
+ul.nav-vertical li a {
   display: block;
+  text-align:center;
+  border-bottom: 1px solid hsla(0, 8%, 48%, 0.651);
   color: black;
   padding: 8px 16px;
   text-decoration: none;
 }
-li a:hover {
+ul.nav-vertical li a:hover {
   background-color: hsla(187, 87%, 48% , 0.253);
   color: hsla(0,0%,0%,0.651);
+}
+ul.nav-vertical li:last-child {
+  border-bottom: none;
+}
+ul.nav-horizontal {
+  list-style-type: none;
+  border: 3px solid hsla(204, 94%, 48%, 0.938);
+  border-radius: 4px;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333333;
+}
+
+ul.nav-horizontal li {
+  float: left;
+}
+
+ul.nav-horizontal li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+ul.nav-horizontal li a:hover {
+  background-color: #111111;
 }
