@@ -1,3 +1,6 @@
+html {
+  scroll-behavior: smooth;
+}
 
 .hover-fx {
   border: 4px solid transparent;      /* 預留邊框，避免 hover 時版面跳動 */
