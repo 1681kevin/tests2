@@ -1,8 +1,12 @@
-const links = [
-  "<a href='https://w3schools.com'>Visit W3Schools</a>",
-  "<a href='https://wwf.org'>Visit WWF</a>",
-  "<a href='https://developer.mozilla.org'>Visit MDN</a>"
-];
+const test = ["test1", "test2", "test3", "test4"];
+let testsd = test.length;
+let textOutput = "";
 
-const text = links[Math.floor(Math.random() * links.length)];
-document.getElementById("test").innerHTML = text;
+for (let i = 0; i < test.length; i++) {
+  textOutput += test[i] + "<br>";
+  console.log(test[i]);
+}
+
+console.log("\n完整輸出:");
+console.log(textOutput);
+document.getElementById("test").innerHTML = textOutput;
