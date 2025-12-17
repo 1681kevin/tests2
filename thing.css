@@ -589,3 +589,65 @@ footer a:hover {
 .ink-leak-hover:hover {
   color: hsl(0, 0%, 100%);
 }
+.page-content,
+.main-container {
+    border-radius: 12px !important;
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.3) !important;
+    position: relative;
+    z-index: 2;
+}
+/* 垂直紫→紅→黑漸層文字 + 深紫外框（自用類別） */
+.gradient-text-purple-outline {
+  background: linear-gradient(to bottom, #6a00ff 0%, #c40000 50%, #000000 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
+
+  /* 深紫實線輪廓，取代原本的紅色陰影 */
+  text-shadow:
+    0 0 0 #5a00b3,
+    1px 0 #5a00b3, -1px 0 #5a00b3,
+    0 1px #5a00b3, 0 -1px #5a00b3,
+    1px 1px #5a00b3, -1px 1px #5a00b3,
+    1px -1px #5a00b3, -1px -1px #5a00b3,
+    2px 0 #5a00b3, -2px 0 #5a00b3,
+    0 2px #5a00b3, 0 -2px #5a00b3 !important;
+  font-weight: 700;
+}
+
+/* 僅包住文字尺寸的紫色旋風背景（行內自適應） */
+.purple-whirlwind-inline {
+  position: relative;
+  display: inline-block;
+  padding: 0.2em 0.5em;
+  border-radius: 0.6em;
+  isolation: isolate;
+}
+
+.purple-whirlwind-inline::before {
+  content: '';
+  position: absolute;
+  inset: -0.4em;
+  border-radius: inherit;
+  background: conic-gradient(
+    from 0deg at 50% 50%,
+    rgba(106, 0, 255, 0.28) 0%,
+    rgba(150, 80, 255, 0.28) 16%,
+    rgba(106, 0, 255, 0.28) 32%,
+    rgba(150, 80, 255, 0.28) 48%,
+    rgba(106, 0, 255, 0.28) 64%,
+    rgba(150, 80, 255, 0.28) 80%,
+    rgba(106, 0, 255, 0.28) 100%
+  );
+  filter: blur(10px) saturate(1.05);
+  animation: whirl-rotate 8s linear infinite;
+  z-index: -1;
+  transform-origin: 50% 50%;
+}
+
+@keyframes whirl-rotate {
+  0%   { transform: rotate(0deg) scale(1); }
+  50%  { transform: rotate(180deg) scale(1.03); }
+  100% { transform: rotate(360deg) scale(1); }
+}

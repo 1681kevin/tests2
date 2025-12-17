@@ -1,12 +1,11 @@
-const test = ["test1", "test2", "test3", "test4"];
-let testsd = test.length;
-let textOutput = "";
-
-for (let i = 0; i < test.length; i++) {
-  textOutput += test[i] + "<br>";
-  console.log(test[i]);
+let globalVar = 'I am global';
+var anotherGlobal = 'I am also global';
+const PI = 3.14;
+function scopetest () {
+  console.log(globalVar); // Accessible
+  console.log(anotherGlobal); // Accessible
+  console.log(PI); // Accessible
 }
 
-console.log("\n完整輸出:");
-console.log(textOutput);
-document.getElementById("test").innerHTML = textOutput;
+scopetest();
+console.log(globalVar);
