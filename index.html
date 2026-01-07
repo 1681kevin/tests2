@@ -12,6 +12,10 @@
     </style>
 </head>
 <body>
+  <div class="progressbar">
+  <div class="progressfill" style="width: 70%;"></div>
+</div>
+
 <ul class="nav-horizontal">
   <li><a class="active" href="#">Home</a></li>
   <li><a href="#">About</a></li>
@@ -30,28 +34,6 @@
   <li><a href="#">222</a></li>
   <li><a href="#">333</a></li>
 </ul>
-    <h1>歡迎來到範例 HTML 頁面</h1>
-<p class="error-effect">File not found</p>
-<!-- 方法 1: 擴散的墨水斑點 -->
-<span class="ink-leak">墨水擴散效果</span>
-
-<!-- 方法 2: 滴落的墨水 -->
-<span class="ink-drip">墨水滴落效果</span>
-
-<!-- 方法 3: 多重墨水飛濺 -->
-<span class="ink-splash">墨水飛濺效果</span>
-
-<!-- 方法 4: 文字滲透/模糊 -->
-<span class="ink-bleed">墨水滲透效果</span>
-
-<!-- 方法 5: Hover 觸發墨水擴散 -->
-<span class="ink-leak-hover">懸停墨水效果</span>
-<div class="purple-whirlwind-inline">
-  <div class="content">
-    <h1 class="purple-whirlwind-inline">Whirlwind Title</h1>
-    <!-- 其他內容 -->
-  </div>
-</div>
     <p id="test"></p>
     <p><a href="https://www.w3schools.com/css/css_pseudo_elements.asp">這是一個連結</a></p>
     <a href="https://github.com/1681kevin/tests2"><img class="hover-fx" src="asdfghjj.png" alt="範例圖片"></a>
@@ -72,7 +54,9 @@
   <p>This is the header section of the page</p>
 </header>
 
-<nav>
+<!-- REAPER ANIMATION SHOWCASE -->
+
+
   <h3>Navigation Section</h3>
   <p>Additional navigation content goes here</p>
 </nav>
@@ -98,6 +82,48 @@
   <p>&copy; 2024 Your Website. All rights reserved.</p>
   <p>Contact: <a href="mailto:info@example.com">info@example.com</a></p>
 </footer>
+<form action="#" method="post">
+  <fieldset>
+    <legend>Demo Form</legend>
 
+    <!-- Text input with accessible label -->
+    <div class="form-control">
+      <label for="nickname">Nickname</label>
+      <input id="nickname" name="nickname" type="text" placeholder="Enter nickname" autocomplete="nickname" required autofocus>
+    </div>
+
+    <!-- Checkbox with label -->
+    <div class="form-control">
+      <input id="subscribe" name="subscribe" type="checkbox" checked>
+      <label for="subscribe">Subscribe to newsletter</label>
+    </div>
+
+    <!-- Radio group properly grouped via same name -->
+    <fieldset>
+      <legend>Choose your fate</legend>
+      <div class="form-control">
+        <input id="fate-life" type="radio" name="fate" value="life" checked>
+        <label for="fate-life">Life</label>
+      </div>
+      <div class="form-control">
+        <input id="fate-roll" type="radio" name="fate" value="roll">
+        <label for="fate-roll">Roll the dice</label>
+      </div>
+      <div class="form-control">
+        <input id="fate-mystery" type="radio" name="fate" value="mystery">
+        <label for="fate-mystery">Mystery option</label>
+      </div>
+    </fieldset>
+
+    <!-- Password input with label and helpers -->
+    <div class="form-control">
+      <label for="password">Password</label>
+      <input id="password" name="password" type="password" placeholder="••••••••" autocomplete="new-password" minlength="8" aria-describedby="pwd-hint">
+      <small id="pwd-hint">Use at least 8 characters.</small>
+    </div>
+
+    <button type="submit">Submit</button>
+  </fieldset>
+</form>
 </body>
 </html>

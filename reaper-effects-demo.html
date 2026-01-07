@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .gradienttest{
+            background:linear-gradient(45deg, red, blue 50%, green);
+            -webkit-background-clip: text;
+            background-clip:text;
+            color:transparent;
+        }
+    </style>
+</head>
+<body>
+    <div class="gradienttest">
+        This text has a gradient color effect!
+    </div>
+    <button onclick="getLocation()">取得位置</button>
+<p id="output"></p>
+<script>
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      document.getElementById('output').textContent = 
+        `緯度: ${position.coords.latitude}, 經度: ${position.coords.longitude}`;
+    }, function(error){
+      document.getElementById('output').textContent = '無法取得位置';
+    });
+  } else {
+    document.getElementById('output').textContent = '瀏覽器不支援地理位置API';
+  }
+}
+</script>
+</body>
+</html>
