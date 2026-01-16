@@ -1,14 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+  <html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         .gradienttest{
-            background:linear-gradient(45deg, red, blue 50%, green);
+            background: linear-gradient(45deg, red, blue, green);
             -webkit-background-clip: text;
-            background-clip:text;
-            color:transparent;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+            font-size: 3em;
+            font-weight: italic;
+        }
+        fieldset{
+          border: 2px solid deepskyblue;
+          border-radius:3px;
+          padding:10px;
+          box-shadow:0px 0px 10px rgba(0,0,0,0.1);
+          margin-bottom:20px;
+          border-right-color: darkgreen;
+        }
+        h1 {
+          background:radial-gradient(circle,#181bc9,#353235,#181bc9);
+          -webkit-background-clip:text;
+          -webkit-text-fill-color:transparent;
+          font-family:cursive;
+          text-shadow:2px 2px 8px yellow;
+        }
+        .texteffect1{
+          writing-mode:vertical-rl;
+          font-size:2em;
+          font-weight:bold;
+          color:orange;
+          text-shadow:2px 2px 5px red;
         }
     </style>
 </head>
@@ -18,6 +44,71 @@
     </div>
     <button onclick="getLocation()">取得位置</button>
 <p id="output"></p>
+<fieldset>
+  <legend>Geolocation API Example</legend>
+  <p>Click the button to get your current location:</p>
+  <button onclick="getLocation()">Get Location</button>
+  <p id="output"></p>
+  <input type="button" value="Test Button" onclick="alert('Button Clicked!')">
+  <input type="checkbox" id="testCheckbox" name="testCheckbox"> <label for="testCheckbox">Test Checkbox</label> 
+</fieldset>
+<h1>form test</h1>
+<p><span class="texteffect1">why</span>am i here</p>
+<fieldset>
+  <legend>HTML Form Example</legend>
+  <form id="testForm" onsubmit="event.preventDefault(); alert('Form submitted!');">
+    <div style="margin-bottom: 10px;">
+      <label for="name">Name:</label><br>
+      <input type="text" id="name" name="name" required>
+    </div>
+    
+    <div style="margin-bottom: 10px;">
+      <label for="email">Email:</label><br>
+      <input type="email" id="email" name="email" required>
+    </div>
+    
+    <div style="margin-bottom: 10px;">
+      <label for="message">Message:</label><br>
+      <textarea id="message" name="message" rows="4" cols="30"></textarea>
+    </div>
+    
+    <div style="margin-bottom: 10px;">
+      <label>Gender:</label><br>
+      <input type="radio" id="male" name="gender" value="male">
+      <label for="male">Male</label>
+      <input type="radio" id="female" name="gender" value="female">
+      <label for="female">Female</label>
+      <input type="radio" id="other" name="gender" value="other">
+      <label for="other">Other</label>
+      <input type="radio" id="what" name="gender" value="what">
+      <label for="what">what</label>
+       </div>
+    
+    <div style="margin-bottom: 10px;">
+      <label>Interests:</label><br>
+      <input type="checkbox" id="sports" name="interests" value="sports">
+      <label for="sports">Sports</label><br>
+        <input type="checkbox" id="sports2" name="interests" value="sports">
+        <label for="sports2">Sports2</label><br>
+      <input type="checkbox" id="music" name="interests" value="music">
+      <label for="music">Music</label><br>
+      <input type="checkbox" id="reading" name="interests" value="reading">
+      <label for="reading">Reading</label><br>
+      <input type="checkbox" id="travel" name="interests" value="travel">
+      <label for="travel">Travel</label>
+    </div>
+    
+    <div style="margin-bottom: 10px;">
+      <input type="checkbox" id="subscribe" name="subscribe">
+      <label for="subscribe">Subscribe to newsletter</label>
+    </div>
+    
+    <div>
+      <input type="submit" value="Submit">
+      <input type="reset" value="Reset">
+    </div>
+  </form>
+</fieldset>
 <script>
 function getLocation() {
   if (navigator.geolocation) {
@@ -29,6 +120,22 @@ function getLocation() {
     });
   } else {
     document.getElementById('output').textContent = '瀏覽器不支援地理位置API';
+  }
+}
+function error(error) {
+  switch(error.code) {
+    case error.PERMISSION_DENIED:
+      x.innerHTML = "User denied the request for Geolocation."
+      break;
+    case error.POSITION_UNAVAILABLE:
+      x.innerHTML = "Location information is unavailable."
+      break;
+    case error.TIMEOUT:
+      x.innerHTML = "The request to get user location timed out."
+      break;
+    case error.UNKNOWN_ERROR:
+      x.innerHTML = "An unknown error occurred."
+      break;
   }
 }
 </script>
